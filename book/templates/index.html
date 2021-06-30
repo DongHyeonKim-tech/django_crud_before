@@ -1,0 +1,43 @@
+
+<button id="book-create" style="float: right;" class="btn btn-primary" type="button" name="button" onClick="location.href='{% url 'create' %}'">CREATE</button>
+
+<table id="books-table" class="table">
+  <thead>
+  <tr>
+    <th class="text-center" scope="col">No</th>
+    <th class="text-center" scope="col" width=9%>검색어</th>
+    <th class="text-center" scope="col" width=20%>제목</th>
+    <th class="text-center" scope="col" width=12%>저자</th>
+    <th class="text-center" scope="col" width=10%>출판사</th>
+    <th class="text-center" scope="col" width=9%>출판일</th>
+    <th class="text-center" scope="col">ISBN</th>
+    <th class="text-center" scope="col">bid</th>
+    <th class="text-center" scope="col">update</th>
+    <th class="text-center" scope="col">delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for book in books %}
+    <tr>
+      <th class="text-center" scope="row">{{ book.id }}</th>
+      <td class="text-center">{{ book.searchsubject }}</td>
+      <td class="text-center"><a href="{% url 'detail' book.id%}">{{ book.title }}</a></td>
+      <td class="text-center">{{ book.writer }}</td>
+     {% comment %} <td class="text-center">{{ book.get_book_type_display }}</td> {% endcomment %}
+      <td class="text-center">{{ book.publisher }}</td>
+      <td class="text-center">{{ book.publishdate}}</td>
+      <td class="text-center"><a href="https://book.naver.com/search/search.nhn?sm=sta_hty.book&sug=&where=nexearch&query={{ book.isbn }}">{{ book.isbn }}</a></td>
+      <td class="text-center"><a href="https://book.naver.com/bookdb/book_detail.nhn?bid={{ book.bid }}">{{ book.bid }}</a></td>
+      <td class="text-center">
+       <button type="button" class="update-book" onClick="location.href='{% url 'update' book.id %}'">
+        update</button>
+      </td>
+      <td class="text-center">
+       <button type="button" class="delete-book" onClick="location.href='{% url 'delete' book.id %}'">
+        delete</button>
+      </td>
+    
+  {% endfor %}
+    </tr>
+  </tbody>
+</table>

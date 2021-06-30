@@ -1,0 +1,12 @@
+<section id="blog">
+  <div class="container">
+    <form method="POST" class="post-form">
+       {% csrf_token %}
+
+       <p>정말로 <b>< {{ delete_book.title }} ></b> 책을 삭제하시나요?</p>
+       <input type="submit" class="save btn btn-default" value="삭제"/>
+       <button type="button" class="btn btn-cancel" onClick="location.href='{% url 'detail' delete_book.id %}';">취소</button>
+       <button type="button" class="btn btn-index" onClick="location.href='{% url 'index' %}';">목록</button>
+    </form>
+  </div>
+</section>

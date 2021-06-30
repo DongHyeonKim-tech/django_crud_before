@@ -1,0 +1,121 @@
+<style>
+.title {
+    float: center;
+}
+.left-box {
+    background: white;
+    float: left;
+    width: 20%;
+}
+.right-box {
+    background: white;
+    float: right;
+    width: 80%;
+    text-align: justify;
+    width: 80%;
+}
+.writer-bok {
+    background: white;
+    float: right;
+    text-align: justify;
+}
+.footer{
+    float: center;
+}
+</style>
+<div class="header">
+  <h1 class="title"><b>< {{ book_detail.title }} > &nbsp </b>상세정보</h1>
+</div>
+<br>
+<br>
+<div class="row">
+  <div class="left-box" border="1">
+    <img src={{ book_detail.image }} width=300>
+  </div>
+  <div class="right-box">
+    <font size="4em">
+    <b>No: </b>
+    {{ book_detail.id }}
+    <br>
+    <b>제목:</b>
+    {{ book_detail.title }} &nbsp
+    <b>저자:</b>
+    {{ book_detail.writer }} &nbsp
+    <b>역자:</b>
+    {% if book_detail.translator %}
+    {{ book_detail.translator }} &nbsp
+    {% else %}
+    없음
+    {% endif %}
+    <b>그림:</b>
+    {% if book_detail.painter%}
+    {{ book_detail.painter }}
+    {% else %}
+    없음
+    {% endif %}
+    <br>
+    <b>카테고리:</b>
+    {% if book_datail.categorybottom %}
+    {{ book_detail.categorytop }} > {{ book_detail.categorymiddle }} > {{ book_detail.categorybottom }}
+    {% elif book_detail.categorymiddle %}
+    {{ book_detail.categorytop }} > {{ book_detail.categorymiddle }}
+    {% elif book_detail.categorytop %}
+    {{ book_detail.categorytop }}
+    {% else %}
+    없음
+    {% endif %}
+    <br>
+    <b>출판사:</b>
+    {{ book_detail.publisher }} &nbsp
+    <b>출판일:</b>
+    {{ book_detail.publishdate }} &nbsp
+    <b>BID:</b>
+    <a href="https://book.naver.com/bookdb/book_detail.nhn?bid={{ book_detail.bid }}">{{ book_detail.bid }}</a> &nbsp
+    <b>ISBN:</b>
+    <a href="https://book.naver.com/search/search.nhn?sm=sta_hty.book&sug=&where=nexearch&query={{ book_detail.isbn }}">{{ book_detail.isbn }}</a>
+    <br>
+    <b>평점:</b>
+    {{ book_detail.grade }} &nbsp
+    <b>리뷰건수:</b>
+    {{ book_detail.review }}    
+    </font>
+    <br>
+    <br>
+    <b>책 소개:</b>
+    {% if book_detail.intro %}
+    {{ book_detail.intro }}
+    {% else %}
+    없음
+    {% endif %}
+    <br>
+    <br>
+    <b>목차:</b>
+    {% if book_detail.content%}
+    {{ book_detail.content }}
+    {% else %}
+    없음
+    {% endif %}
+    <br>
+    <br>
+    <b>저자 소개:</b></b>
+    {% if book_detail.authorintro %}
+    {{ book_detail.authorintro }}
+    {% else %}
+    없음
+    {% endif %}
+    
+    <div class="writer-box">
+    {% for wrt_b in writer_book %}
+    <p>저자의 다른 작품: <a href="{% url 'detail' pk=book_another.id %}">{{wrt_b.booktitle}}</a></p>
+    <br>
+    {% endfor %}
+    </div>
+
+
+    <div class="footer">
+      <button type="button" class="update-book" onClick="location.href='{% url 'update' book_detail.id %}'">수정</button>
+      <button type="button" class="delete-book" onClick="location.href='{% url 'delete' book_detail.id %}'">삭제</button>
+      <button type="button" class="btn btn-default" onClick="location.href='{% url 'index' %}';">목록</button>
+</div>
+  </div>
+</div>

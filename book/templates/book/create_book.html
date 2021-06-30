@@ -1,0 +1,6 @@
+   <form method="post">
+   {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="추가">
+    <button type="button" class="btn btn-default" onClick="location.href='{% url 'index' %}';">뒤로가기</button>
+</form>

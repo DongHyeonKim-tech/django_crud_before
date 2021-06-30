@@ -1,0 +1,6 @@
+   <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="수정">
+    <button type="button" class="btn btn-cancel" onClick="location.href='{% url 'detail' update_book.id %}';">취소</button>
+    <button type="button" class="btn btn-index" onClick="location.href='{% url 'index' %}';">목록</button>
+</form>
