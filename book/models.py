@@ -15,11 +15,10 @@
 from django.db import models
 
 
+
 class BidCrawling(models.Model):
 
-    # Field name made lowercase.
-    searchsubject = models.CharField(
-        db_column='searchSubject', max_length=500, blank=True, null=True)
+    searchsubject = models.CharField(db_column='searchSubject', max_length=500, blank=True, null=True)  # Field name made lowercase.
 
     title = models.TextField(blank=True, null=True)
 
@@ -31,32 +30,21 @@ class BidCrawling(models.Model):
 
     publisher = models.TextField(blank=True, null=True)
 
-    # Field name made lowercase.
-    publishdate = models.CharField(
-        db_column='publishDate', max_length=50, blank=True, null=True)
+    publishdate = models.CharField(db_column='publishDate', max_length=50, blank=True, null=True)  # Field name made lowercase.
 
     intro = models.TextField(blank=True, null=True)
 
     content = models.TextField(blank=True, null=True)
 
-    # Field name made lowercase.
-    authorintro = models.TextField(
-        db_column='authorIntro', blank=True, null=True)
+    authorintro = models.TextField(db_column='authorIntro', blank=True, null=True)  # Field name made lowercase.
 
-    # Field name made lowercase.
-    categorytop = models.TextField(
-        db_column='categoryTop', blank=True, null=True)
+    categorytop = models.TextField(db_column='categoryTop', blank=True, null=True)  # Field name made lowercase.
 
-    # Field name made lowercase.
-    categorymiddle = models.TextField(
-        db_column='categoryMiddle', blank=True, null=True)
+    categorymiddle = models.TextField(db_column='categoryMiddle', blank=True, null=True)  # Field name made lowercase.
 
-    # Field name made lowercase.
-    categorybottom = models.TextField(
-        db_column='categoryBottom', blank=True, null=True)
+    categorybottom = models.TextField(db_column='categoryBottom', blank=True, null=True)  # Field name made lowercase.
 
-    # Field name made lowercase.
-    isbn = models.TextField(db_column='ISBN', blank=True, null=True)
+    isbn = models.TextField(db_column='ISBN', blank=True, null=True)  # Field name made lowercase.
 
     bid = models.IntegerField(blank=True, null=True)
 
@@ -66,8 +54,11 @@ class BidCrawling(models.Model):
 
     image = models.TextField(blank=True, null=True)
 
+
+
     class Meta:
 
         managed = False
 
         db_table = 'bid_crawling'
+

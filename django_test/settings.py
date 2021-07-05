@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'django_test.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'book',
+        'NAME': 'book2',
         'USER': 'bid',
         'PASSWORD': 'bid_password',
         'HOST': '192.168.1.22',
