@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'django_test.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'book2',
-        'USER': 'root',
-        'PASSWORD': 'xkzlxkzl1!',
-        'HOST': '127.0.0.1',
+        'NAME': 'book',
+        'USER': 'bid',
+        'PASSWORD': 'bid_password',
+        'HOST': '192.168.1.22',
         'PORT': '3306',
     }
 }
