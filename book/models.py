@@ -62,3 +62,5 @@ class BidCrawling(models.Model):
 
         db_table = 'bid_crawling'
 
+        ordering = ['-bid']
+
